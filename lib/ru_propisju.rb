@@ -388,6 +388,7 @@ module RuPropisju
     integrals_key = :bel_integral
     fractions_key = :rub_fraction
     money_gender = MONEY_GENDERS[:rub]
+    options[:fraction_formatter] = "%02d"
 
     money(amount, locale, integrals_key, fractions_key, money_gender, true, false, options)
   end
