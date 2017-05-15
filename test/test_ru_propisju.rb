@@ -11,7 +11,6 @@ class TestRuPropisju < Test::Unit::TestCase
       RuPropisju.amount_in_words(123, "neumelix programmista")
     end
 
-    assert_equal "ноль белорусских рублей 10 копеек", RuPropisju.bel_rublej(0.10)
     # russian locale
     assert_equal "сто двадцать три рубля", RuPropisju.amount_in_words(123, :rur)
     assert_equal "сто двадцать три рубля", RuPropisju.amount_in_words(123, :rub)
@@ -327,6 +326,14 @@ class TestRuPropisju < Test::Unit::TestCase
     assert_equal "триста тридцять два рубля", RuPropisju.rublej(331.995, :ua)
     assert_equal "один рубль", RuPropisju.rubl(1, :ua)
     assert_equal "три рубля 14 копійок", RuPropisju.rublja(3.14, :ua)
+  end
+
+  def test_bel_rublej
+    assert_equal "ноль белорусских рублей 10 копеек", RuPropisju.bel_rublej(0.10)
+    assert_equal "одна тысяча белорусских рублей", RuPropisju.bel_rublej(1000)
+    assert_equal "три белорусских рубля 14 копеек", RuPropisju.bel_rublej(3.14)
+    assert_equal "двести двадцать два белорусских рубля 05 копеек", RuPropisju.bel_rublej(222.05)
+    assert_equal "четырнадцать белорусских рублей 01 копейка", RuPropisju.bel_rublej(14.01)
   end
 
   def test_griven
