@@ -330,10 +330,11 @@ class TestRuPropisju < Test::Unit::TestCase
 
   def test_bel_rublej
     assert_equal "ноль белорусских рублей 10 копеек", RuPropisju.bel_rublej(0.10)
-    assert_equal "одна тысяча белорусских рублей", RuPropisju.bel_rublej(1000)
+    assert_equal "одна тысяча белорусских рублей 00 копеек", RuPropisju.bel_rublej(1000)
     assert_equal "три белорусских рубля 14 копеек", RuPropisju.bel_rublej(3.14)
     assert_equal "двести двадцать два белорусских рубля 05 копеек", RuPropisju.bel_rublej(222.05)
     assert_equal "четырнадцать белорусских рублей 01 копейка", RuPropisju.bel_rublej(14.01)
+    assert_equal "четыре белорусских рубля 00 копеек", RuPropisju.bel_rublej(4)
   end
 
   def test_griven
